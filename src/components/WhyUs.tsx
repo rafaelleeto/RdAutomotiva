@@ -4,37 +4,35 @@ import { Crosshair, ShieldCheck, Sparkles, TrendingUp, CheckCircle2 } from 'luci
 import { WHY_US_ITEMS } from '../data/content';
 
 const iconMap: Record<string, React.ReactNode> = {
-  Crosshair: <Crosshair size={24} className="text-[#3B82F6]" />,
-  ShieldCheck: <ShieldCheck size={24} className="text-[#3B82F6]" />,
-  Sparkles: <Sparkles size={24} className="text-[#3B82F6]" />,
-  TrendingUp: <TrendingUp size={24} className="text-[#3B82F6]" />,
+  Crosshair: <Crosshair size={24} className="text-[#00A3FF]" />,
+  ShieldCheck: <ShieldCheck size={24} className="text-[#00A3FF]" />,
+  Sparkles: <Sparkles size={24} className="text-[#00A3FF]" />,
+  TrendingUp: <TrendingUp size={24} className="text-[#00A3FF]" />,
 };
 
 export const WhyUs: React.FC = () => {
   return (
-    <section id="por-que-rd" className="py-24 bg-[#05080D] relative overflow-hidden border-t border-[#1B2735]/50">
-      {/* Background grid pattern & ambient light */}
+    <section id="por-que-rd" className="py-24 bg-[#0A0F16] relative overflow-hidden border-t border-[#16202E]/60">
       <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-[#2563EB]/8 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-[1px] bg-[#3B82F6]"></div>
-            <span className="text-[12px] font-bold tracking-[0.4em] text-[#3B82F6] uppercase">
+            <div className="w-8 h-[2px] bg-[#00A3FF]"></div>
+            <span className="text-xs font-semibold tracking-wider text-[#00A3FF] uppercase">
               Diferenciais Exclusivos
             </span>
-            <div className="w-8 h-[1px] bg-[#3B82F6]"></div>
+            <div className="w-8 h-[2px] bg-[#00A3FF]"></div>
           </div>
 
-          <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight uppercase italic">
-            POR QUE A <span className="text-[#3B82F6] text-glow">RD STUDIO?</span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+            Por que escolher a <span className="text-[#00A3FF]">RD Studio?</span>
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-[#CBD5E1] font-light">
-            Porque cuidar do seu veículo vai muito além de deixá-lo bonito.
+          <p className="mt-4 text-base text-slate-300 max-w-xl mx-auto">
+            Cuidar do seu veículo com metodologia que combina rigor técnico, produtos de excelência e proteção duradoura.
           </p>
         </div>
 
@@ -47,38 +45,34 @@ export const WhyUs: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="group relative p-8 rounded-sm glass hover:border-[#3B82F6]/60 transition-all duration-300 flex flex-col justify-between hover:shadow-[0_0_25px_rgba(37,99,235,0.2)]"
+              className="relative p-6 sm:p-7 rounded bg-[#0B1017] border border-[#1E293B] hover:border-slate-600 transition-colors flex flex-col justify-between shadow-md"
             >
-              {/* Top corner ambient blue highlight */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#2563EB]/0 group-hover:bg-[#2563EB]/15 rounded-tr-sm blur-xl transition-all duration-300 pointer-events-none" />
-
               <div>
                 {/* Icon Container */}
-                <div className="w-12 h-12 rounded-sm bg-[#111923] border border-[#1B2735] group-hover:border-[#3B82F6] flex items-center justify-center mb-6 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.35)]">
-                  {iconMap[item.iconName] || <Sparkles size={24} className="text-[#3B82F6]" />}
+                <div className="w-12 h-12 rounded bg-[#070B10] border border-[#1E293B] flex items-center justify-center mb-5">
+                  {iconMap[item.iconName] || <Sparkles size={22} className="text-[#00A3FF]" />}
                 </div>
 
                 {/* Subtag */}
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#3B82F6] block mb-2">
+                <span className="text-xs font-semibold text-[#00A3FF] uppercase tracking-wider block mb-1">
                   {item.tag}
                 </span>
 
                 {/* Title */}
-                <h3 className="font-display font-black text-lg text-white tracking-widest uppercase mb-3">
+                <h3 className="font-display font-bold text-lg text-white mb-2.5">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs text-[#CBD5E1] font-light leading-relaxed">
+                <p className="text-sm text-slate-300 leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              {/* Bottom detail pill */}
-              <div className="mt-8 pt-4 border-t border-[#1B2735]/60 flex items-center gap-2 text-[11px] font-semibold text-[#94A3B8] group-hover:text-white transition-colors">
-                <CheckCircle2 size={13} className="text-[#3B82F6]" />
-                <span className="tracking-wider uppercase">Padrão RD Verificado</span>
+              {/* Bottom detail row */}
+              <div className="mt-6 pt-4 border-t border-[#1E293B] flex items-center gap-2 text-xs font-medium text-slate-400">
+                <CheckCircle2 size={14} className="text-[#00A3FF] shrink-0" />
+                <span>Padrão RD Verificado</span>
               </div>
             </motion.div>
           ))}

@@ -41,7 +41,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#05080D] text-[#CBD5E1] font-sans selection:bg-[#2563EB] selection:text-white flex flex-col justify-between">
+    <div className="min-h-screen bg-[#06090E] text-[#CBD5E1] font-sans selection:bg-[#0284C7] selection:text-white flex flex-col justify-between">
       {/* Fixed Navigation Header */}
       <Header onOpenQuoteModal={() => scrollToContact()} />
 

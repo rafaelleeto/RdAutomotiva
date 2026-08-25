@@ -43,32 +43,29 @@ export const BeforeAfter: React.FC = () => {
   return (
     <section
       id="antes-depois"
-      className="py-24 bg-[#0B111A] relative overflow-hidden border-t border-[#1B2735]/50"
+      className="py-24 bg-[#0A0F16] relative overflow-hidden border-t border-[#16202E]/60"
       onMouseUp={handleMouseUp}
       onTouchEnd={handleMouseUp}
     >
-      {/* Background grid pattern & ambient glow */}
       <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[450px] bg-[#2563EB]/10 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-[1px] bg-[#3B82F6]"></div>
-            <span className="text-[12px] font-bold tracking-[0.4em] text-[#3B82F6] uppercase">
+            <div className="w-8 h-[2px] bg-[#00A3FF]"></div>
+            <span className="text-xs font-semibold tracking-wider text-[#00A3FF] uppercase">
               Comprovação Visual
             </span>
-            <div className="w-8 h-[1px] bg-[#3B82F6]"></div>
+            <div className="w-8 h-[2px] bg-[#00A3FF]"></div>
           </div>
 
-          <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight uppercase italic">
-            A DIFERENÇA ESTÁ<br />
-            <span className="text-[#3B82F6] text-glow">NOS DETALHES.</span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+            A diferença está <span className="text-[#00A3FF]">nos detalhes.</span>
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-[#CBD5E1] font-light">
+          <p className="mt-4 text-base text-slate-300 max-w-xl mx-auto">
             Arraste o divisor para comparar o estado original e o resultado após nossos procedimentos.
           </p>
 
@@ -81,10 +78,10 @@ export const BeforeAfter: React.FC = () => {
                   setActiveScenarioIndex(idx);
                   setSliderPosition(50);
                 }}
-                className={`px-5 py-2.5 rounded-sm text-[11px] font-bold uppercase tracking-widest transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded text-xs font-semibold transition-colors cursor-pointer ${
                   activeScenarioIndex === idx
-                    ? 'bg-[#2563EB] text-white shadow-[0_0_15px_rgba(37,99,235,0.4)] border border-[#3B82F6]'
-                    : 'bg-[#111923]/80 text-[#94A3B8] hover:text-white border border-[#1B2735] hover:border-[#3B82F6]/50'
+                    ? 'bg-[#0284C7] text-white border border-[#00A3FF] shadow-sm'
+                    : 'bg-[#0B1017] text-slate-300 hover:text-white border border-[#1E293B] hover:border-slate-500'
                 }`}
               >
                 {sc.title}
@@ -95,7 +92,7 @@ export const BeforeAfter: React.FC = () => {
 
         {/* Interactive Comparison Card */}
         <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-sm overflow-hidden glass border border-[#1B2735] shadow-2xl p-2 sm:p-4 hover:border-[#3B82F6]/40 transition-all">
+          <div className="relative rounded overflow-hidden bg-[#0B1017] border border-[#1E293B] shadow-xl p-2 sm:p-4">
             
             {/* The Before/After Image Container */}
             <div
@@ -104,14 +101,14 @@ export const BeforeAfter: React.FC = () => {
               onMouseMove={handleMouseMove}
               onTouchMove={handleTouchMove}
               onTouchStart={(e) => handleMove(e.touches[0].clientX)}
-              className="relative w-full h-[340px] sm:h-[480px] md:h-[540px] rounded-sm overflow-hidden cursor-ew-resize select-none touch-none border border-[#1B2735]/60"
+              className="relative w-full h-[340px] sm:h-[480px] md:h-[540px] rounded overflow-hidden cursor-ew-resize select-none touch-none border border-[#1E293B]"
             >
               {/* "AFTER" (Full background layer) */}
               <img
                 src={scenario.afterImage}
                 alt={scenario.afterLabel}
                 referrerPolicy="no-referrer"
-                className="absolute inset-0 w-full h-full object-cover object-center filter contrast-120"
+                className="absolute inset-0 w-full h-full object-cover object-center filter contrast-115"
               />
 
               {/* "BEFORE" (Clipped overlay layer) */}
@@ -129,50 +126,47 @@ export const BeforeAfter: React.FC = () => {
                     maxWidth: 'none',
                   }}
                 />
-                
-                {/* Left (Before) simulated scratches/holograms overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#000000]/20 to-transparent pointer-events-none" />
               </div>
 
-              {/* Vertical Divider Line with Blue Glow */}
+              {/* Vertical Divider Line */}
               <div
-                className="absolute inset-y-0 w-1 bg-[#3B82F6] pointer-events-none shadow-[0_0_15px_#3B82F6]"
-                style={{ left: `calc(${sliderPosition}% - 0.5px)` }}
+                className="absolute inset-y-0 w-0.5 bg-[#00A3FF] pointer-events-none"
+                style={{ left: `calc(${sliderPosition}% - 1px)` }}
               >
                 {/* Drag Handle Button in Middle */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#0B111A] border-2 border-[#3B82F6] flex items-center justify-center text-white shadow-[0_0_20px_rgba(59,130,246,0.8)] backdrop-blur-md">
-                  <MoveHorizontal size={18} className="text-[#93C5FD]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#06090E] border border-[#00A3FF] flex items-center justify-center text-white shadow-md">
+                  <MoveHorizontal size={16} className="text-[#BAE6FD]" />
                 </div>
               </div>
 
               {/* Before Label Badge */}
-              <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-sm bg-[#05080D]/90 border border-[#1B2735] backdrop-blur-md text-[10px] font-black uppercase tracking-widest text-[#94A3B8]">
+              <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#06090E]/90 border border-[#1E293B] text-xs font-semibold text-slate-300">
                 {scenario.beforeLabel}
               </div>
 
               {/* After Label Badge */}
-              <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-sm bg-[#0B111A]/95 border border-[#2563EB]/60 backdrop-blur-md text-[10px] font-black uppercase tracking-widest text-[#93C5FD] shadow-[0_0_15px_rgba(37,99,235,0.4)] flex items-center gap-1.5">
-                <Sparkles size={12} className="text-[#3B82F6]" />
+              <div className="absolute top-4 right-4 px-3 py-1 rounded bg-[#06090E]/95 border border-[#0284C7] text-xs font-semibold text-[#00A3FF] flex items-center gap-1.5 shadow-sm">
+                <Sparkles size={12} />
                 <span>{scenario.afterLabel}</span>
               </div>
 
               {/* Hint badge in bottom center */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#05080D]/90 border border-[#1B2735] backdrop-blur-md text-[10px] font-bold uppercase tracking-[0.25em] text-[#CBD5E1] pointer-events-none flex items-center gap-2 shadow-lg">
-                <Sliders size={12} className="text-[#3B82F6]" />
-                <span>ARRASTE PARA COMPARAR</span>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3.5 py-1.5 rounded-full bg-[#06090E]/90 border border-[#1E293B] text-xs font-medium text-slate-300 pointer-events-none flex items-center gap-2 shadow-md">
+                <Sliders size={12} className="text-[#00A3FF]" />
+                <span>Arraste para comparar</span>
               </div>
             </div>
 
             {/* Bottom context description */}
-            <div className="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-[#1B2735]/60 mt-2">
+            <div className="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-[#1E293B] mt-2">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#3B82F6] block mb-0.5">
+                <span className="text-xs font-semibold text-[#00A3FF] uppercase tracking-wider block mb-0.5">
                   {scenario.part}
                 </span>
-                <h4 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider">
+                <h3 className="text-base font-bold text-white">
                   {scenario.title}
-                </h4>
-                <p className="text-xs text-[#CBD5E1] mt-1 max-w-2xl font-light">
+                </h3>
+                <p className="text-sm text-slate-300 mt-1 max-w-2xl">
                   {scenario.description}
                 </p>
               </div>
@@ -180,19 +174,19 @@ export const BeforeAfter: React.FC = () => {
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={() => setSliderPosition(20)}
-                  className="px-3.5 py-1.5 rounded-sm bg-[#111923] hover:bg-[#1B2735] border border-[#1B2735] text-[10px] font-bold uppercase tracking-wider text-[#CBD5E1] transition-colors cursor-pointer"
+                  className="px-3.5 py-1.5 rounded bg-[#070B10] hover:bg-[#16202E] border border-[#1E293B] text-xs font-medium text-slate-300 hover:text-white transition-colors cursor-pointer"
                 >
                   Ver Antes
                 </button>
                 <button
                   onClick={() => setSliderPosition(50)}
-                  className="px-3.5 py-1.5 rounded-sm bg-[#111923] hover:bg-[#1B2735] border border-[#1B2735] text-[10px] font-bold uppercase tracking-wider text-[#CBD5E1] transition-colors cursor-pointer"
+                  className="px-3.5 py-1.5 rounded bg-[#070B10] hover:bg-[#16202E] border border-[#1E293B] text-xs font-medium text-slate-300 hover:text-white transition-colors cursor-pointer"
                 >
                   Meio a Meio
                 </button>
                 <button
                   onClick={() => setSliderPosition(80)}
-                  className="px-3.5 py-1.5 rounded-sm bg-[#2563EB]/25 hover:bg-[#2563EB]/40 border border-[#2563EB]/50 text-[10px] font-bold uppercase tracking-wider text-[#93C5FD] transition-colors cursor-pointer shadow-[0_0_10px_rgba(37,99,235,0.2)]"
+                  className="px-3.5 py-1.5 rounded bg-[#0284C7] hover:bg-[#0EA5E9] border border-[#00A3FF] text-xs font-medium text-white transition-colors cursor-pointer shadow-sm"
                 >
                   Ver Depois
                 </button>

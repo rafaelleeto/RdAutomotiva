@@ -14,15 +14,15 @@ export const WhatsAppFloating: React.FC = () => {
     >
       {/* Tooltip */}
       {showTooltip && (
-        <div className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-sm glass border border-[#1B2735] text-xs font-bold text-white shadow-2xl backdrop-blur-md animate-fadeIn">
-          <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
-          <span className="tracking-wide">Fale conosco</span>
+        <div className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded bg-[#0B1017] border border-[#1E293B] text-xs font-semibold text-slate-200 shadow-xl">
+          <span className="w-2 h-2 rounded-full bg-[#00A3FF]" />
+          <span>Fale conosco</span>
           <button
             onClick={(e) => {
               e.stopPropagation();
               setShowTooltip(false);
             }}
-            className="text-[#64748B] hover:text-white ml-1 cursor-pointer"
+            className="text-slate-400 hover:text-white ml-1 cursor-pointer"
           >
             <X size={12} />
           </button>
@@ -36,13 +36,9 @@ export const WhatsAppFloating: React.FC = () => {
         rel="noopener noreferrer"
         id="whatsapp-floating-btn"
         aria-label="Fale conosco no WhatsApp"
-        className="group relative w-14 h-14 rounded-sm bg-[#2563EB] hover:bg-[#3B82F6] text-white flex items-center justify-center shadow-[0_0_25px_rgba(37,99,235,0.6)] hover:shadow-[0_0_35px_rgba(59,130,246,0.8)] transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
+        className="w-13 h-13 rounded-full bg-[#0284C7] hover:bg-[#0EA5E9] text-white flex items-center justify-center shadow-lg transition-colors cursor-pointer"
       >
-        {/* Pulsing ring */}
-        <span className="absolute -inset-1 rounded-sm bg-[#3B82F6]/30 animate-ping pointer-events-none" />
-
-        {/* WhatsApp Vector Icon with High Contrast & Blue Style */}
-        <MessageCircle size={26} className="text-white fill-white/20 group-hover:rotate-12 transition-transform" />
+        <MessageCircle size={24} className="text-white fill-white/20" />
       </a>
     </div>
   );

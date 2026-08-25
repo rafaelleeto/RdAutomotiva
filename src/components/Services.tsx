@@ -10,31 +10,28 @@ interface ServicesProps {
 
 export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   return (
-    <section id="servicos" className="py-24 bg-[#05080D] relative overflow-hidden border-t border-[#1B2735]/50">
-      {/* Background ambient lighting and pattern */}
+    <section id="servicos" className="py-24 bg-[#06090E] relative overflow-hidden border-t border-[#16202E]/60">
       <div className="absolute inset-0 grid-pattern opacity-25 pointer-events-none" />
-      <div className="absolute top-10 left-1/4 w-[600px] h-[400px] bg-[#2563EB]/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 w-[500px] h-[350px] bg-[#1B2735]/30 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-[1px] bg-[#3B82F6]"></div>
-            <span className="text-[12px] font-bold tracking-[0.4em] text-[#3B82F6] uppercase">
+            <div className="w-8 h-[2px] bg-[#00A3FF]"></div>
+            <span className="text-xs font-semibold tracking-wider text-[#00A3FF] uppercase">
               Nossos Serviços
             </span>
-            <div className="w-8 h-[1px] bg-[#3B82F6]"></div>
+            <div className="w-8 h-[2px] bg-[#00A3FF]"></div>
           </div>
 
-          <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight uppercase italic">
-            TRATAMENTOS PENSADOS<br />
-            <span className="text-[#3B82F6] text-glow">PARA O SEU VEÍCULO.</span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+            Tratamentos pensados <br className="hidden sm:inline" />
+            <span className="text-[#00A3FF]">para o seu veículo.</span>
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-[#CBD5E1] font-light">
-            Soluções completas com processos milimetricamente desenvolvidos para cada necessidade.
+          <p className="mt-4 text-base text-slate-300 max-w-xl mx-auto">
+            Soluções completas com processos desenvolvidos com rigor técnico para cada necessidade.
           </p>
         </div>
 
@@ -46,42 +43,37 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              whileHover={{ y: -8 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
               onClick={() => onSelectService(service)}
-              className="group relative rounded-sm overflow-hidden glass border border-[#1B2735] hover:border-[#3B82F6] transition-all duration-500 cursor-pointer flex flex-col justify-between shadow-2xl hover:shadow-[0_0_30px_rgba(37,99,235,0.3)]"
+              className="group relative rounded overflow-hidden bg-[#0B1017] border border-[#1E293B] hover:border-slate-500 transition-colors cursor-pointer flex flex-col justify-between shadow-lg"
             >
-              {/* Top Image Box with Dark Overlay and Hover Zoom */}
-              <div className="relative h-64 overflow-hidden border-b border-[#1B2735]/60">
+              {/* Top Image Box */}
+              <div className="relative h-60 overflow-hidden border-b border-[#1E293B]">
                 <img
                   src={service.image}
                   alt={`Serviço de ${service.title} - RD Studio Automotivo`}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700 filter contrast-125"
+                  className="w-full h-full object-cover object-center filter contrast-110"
                 />
                 
                 {/* Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B111A] via-[#0B111A]/60 to-transparent" />
-                <div className="absolute inset-0 bg-[#0B111A]/40 group-hover:bg-[#2563EB]/10 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1017] via-[#0B1017]/60 to-transparent" />
 
                 {/* Big Service Number */}
-                <div className="absolute top-5 left-6 font-display font-black text-4xl text-white/30 group-hover:text-[#3B82F6] transition-colors">
+                <div className="absolute top-4 left-5 font-display font-bold text-3xl text-white/30 group-hover:text-[#00A3FF] transition-colors">
                   {service.number}
                 </div>
 
                 {/* Badge */}
-                <div className="absolute top-5 right-6 px-3 py-1 rounded-sm bg-[#0B111A]/95 border border-[#1B2735] text-[10px] font-bold uppercase tracking-widest text-[#93C5FD] backdrop-blur-md">
+                <div className="absolute top-4 right-5 px-2.5 py-1 rounded bg-[#06090E]/90 border border-[#1E293B] text-xs font-semibold text-[#00A3FF]">
                   {service.badge}
                 </div>
 
                 {/* Card Title on Image base */}
-                <div className="absolute bottom-4 left-6 right-6">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#3B82F6] block mb-1">
-                    Tratamento
-                  </span>
-                  <h3 className="font-display font-black text-xl text-white uppercase tracking-wider group-hover:text-[#93C5FD] transition-colors flex items-center justify-between">
+                <div className="absolute bottom-4 left-5 right-5">
+                  <h3 className="font-display font-bold text-xl text-white flex items-center justify-between">
                     <span>{service.number} — {service.title}</span>
-                    <span className="w-8 h-8 rounded-sm bg-[#111923] border border-[#1B2735] group-hover:bg-[#2563EB] group-hover:border-[#3B82F6] flex items-center justify-center text-white transition-all transform group-hover:translate-x-1">
+                    <span className="w-8 h-8 rounded bg-[#0A0F16] border border-[#1E293B] group-hover:bg-[#0284C7] group-hover:text-white flex items-center justify-center text-slate-300 transition-colors">
                       <ArrowUpRight size={16} />
                     </span>
                   </h3>
@@ -89,17 +81,17 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
               </div>
 
               {/* Card Body */}
-              <div className="p-6 sm:p-7 flex flex-col justify-between flex-grow">
+              <div className="p-6 flex flex-col justify-between flex-grow">
                 <div>
-                  <p className="text-xs sm:text-sm text-[#CBD5E1] font-light leading-relaxed mb-6">
+                  <p className="text-sm text-slate-300 leading-relaxed mb-6 font-normal">
                     {service.description}
                   </p>
 
                   {/* Feature Checklist */}
-                  <div className="space-y-2.5 mb-8">
+                  <div className="space-y-2.5 mb-6">
                     {service.features.map((feature, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2.5 text-xs text-[#CBD5E1]">
-                        <CheckCircle2 size={14} className="text-[#3B82F6] shrink-0 mt-0.5" />
+                      <div key={fIdx} className="flex items-start gap-2.5 text-sm text-slate-200">
+                        <CheckCircle2 size={15} className="text-[#00A3FF] shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -107,11 +99,11 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 </div>
 
                 {/* Bottom Action Trigger */}
-                <div className="pt-4 border-t border-[#1B2735]/60 flex items-center justify-between">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#94A3B8] group-hover:text-white transition-colors">
-                    Ver detalhes & Orçamento
+                <div className="pt-4 border-t border-[#1E293B] flex items-center justify-between">
+                  <span className="text-xs font-semibold text-slate-300 group-hover:text-white transition-colors">
+                    Ver detalhes e orçamento
                   </span>
-                  <ChevronRight size={16} className="text-[#3B82F6] group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight size={16} className="text-[#00A3FF] group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </motion.div>
