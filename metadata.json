@@ -1,0 +1,6 @@
+{
+  "name": "RD Studio Automotivo",
+  "description": "Landing page moderna e premium para estética automotiva de alto padrão com detalhamento, correção e proteção veicular.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
